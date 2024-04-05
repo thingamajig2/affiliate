@@ -1,0 +1,118 @@
+.header{
+    .upper{
+        height: 80px;
+        width: 100%;
+        background-color: rgba(165, 165, 165, 0.873);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5rem 1rem;
+        
+        div[for="logos"]{
+            width: 30px;
+            height: 30px;
+            background-size: cover;
+        }
+        .searchAndCompare{
+            height: 100%;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+        }
+        .oniomania{
+            background-image: url("../../images/oniomania.png");
+            width: 80px;
+            height: 87px;
+            background-size: cover;
+            cursor: pointer;
+        }
+        .wishlist{
+            display:flex;
+            justify-content: center;
+            // .heart{
+            //     background-image: url("../../images/heart1.png");
+            //     cursor:pointer;
+            // }
+            .wishListHeart {
+                background-image: url("../../images/heart1.png");
+                height: 30px;
+                width: 30px;
+                cursor: pointer;
+                background-size: cover;
+            }
+            .wishlistBox{
+                border: 0;
+                height: 0;
+                width: 250px;
+                position: absolute;
+                left: 11px;
+                top: 5.1rem;
+                overflow-y: hidden;
+                padding: 0;
+                border-radius: 5px;
+                animation-fill-mode: forwards;
+                color: black;
+                background-color: white;
+            }
+            .wishlistBoxOpen{
+                animation-name: wishlistBoxOpen;
+                animation-duration: 1s;
+            }
+            .wishlistBoxClose{
+                animation-name: wishlistBoxClose;
+                animation-duration: 1s;
+            }
+        }
+        @keyframes wishlistBoxOpen {
+            from{
+                height: 0;
+                padding: 0;
+                border: 0;
+                overflow-y: hidden;
+                color: transparent;
+            }
+            to{
+                height: 274px;
+                padding: 11px;
+                border: 2px solid gray;
+                overflow-y: scroll;
+                color: black;
+            }
+        }
+        @keyframes wishlistBoxClose {
+            from{
+                height: 274px;
+                padding: 11px;
+                border: 2px solid gray;
+                overflow-y: scroll;
+                color: black;
+            }
+            to{
+                height: 0;
+                padding: 0;
+                border: 0;
+                overflow-y: hidden;
+                color: transparent;
+            }
+        }
+
+        .compare{
+            background-image: url("../../images/compare.png");
+            margin-right: 10px;
+            position: relative;
+
+            .compareBox{
+                border: 2px solid gray;
+                height: 150px;
+                width: 150px;
+                position: absolute;
+                right: 0;
+                top: 2.5rem;
+                border-radius: 5px;
+                overflow-y: scroll;
+            }
+        }
+    }
+}

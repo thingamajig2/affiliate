@@ -1,0 +1,29 @@
+.searchIcon{
+    display:flex;
+    justify-content: flex-end;
+    width: 25px;
+    .search{
+        background-image: url('../../images/search.png');
+        cursor: pointer;
+        background-color: transparent;
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 15px;
+        border-radius: 8px;
+        transition: all 0.5s ease;
+        border: none;
+        outline: none;
+        padding: 5px;
+        color: transparent;
+        width: 25px;
+        &:focus{
+            width: 200px;
+            padding-left: 25px;
+            background-color: #ffb055;
+            color: black;
+        }
+        .clearSearch{
+            color: transparent;
+        }
+    }
+}
