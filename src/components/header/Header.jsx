@@ -8,6 +8,7 @@ import Product from "../product/Product";
 import { useDispatch, useSelector } from "react-redux";
 import { openWishlist, selectWishlistOpenStatus } from "../../features/shop/shopSlice";
 import { Link } from "react-router-dom";
+import WishlistProduct from "../wishlistProduct/WishlistProduct";
 
 
 const Header = () => {
@@ -35,7 +36,7 @@ const Header = () => {
           >
             <div className = "wishListHeart" onClick={toggle}></div>
             <div className={`wishlistBox ${active}`}>
-              <Products basket = {true} />
+              <WishlistProduct />
             </div>
           </OutsideClickHandler>
         </div>

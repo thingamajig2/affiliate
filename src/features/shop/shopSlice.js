@@ -4,6 +4,7 @@ import { fetchProduct } from './shopAPI';
 const initialState = {
   data: [],
   filteredData: [],
+  wishlistData: [],
   status: 'idle',
   openStatus: 'wishlistBoxClose',
   searchValue: '',

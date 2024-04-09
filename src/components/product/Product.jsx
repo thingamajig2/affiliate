@@ -7,14 +7,15 @@ import { openWishlist } from "../../features/shop/shopSlice";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 
-const Product = ({ item }) => {
+const Product = ({ item, setToggle }) => {
   const storedArrayCheck = JSON.parse(localStorage.getItem("myArray")) || [];
   const [wish, setWish] = useState(
     storedArrayCheck.some((obj) => obj.id === item.id) ? heartF : heart
   );
   const dispatch = useDispatch();
 
-  const toggleHeart = () => {
+  const toggleHeart = (e) => {
+    e.preventDefault();
     const storedArray = JSON.parse(localStorage.getItem("myArray")) || [];
     if (wish === heart) {
       setWish(heartF);
@@ -30,7 +31,9 @@ const Product = ({ item }) => {
     }
   };
 
-  useEffect(() => {}, [wish]);
+  useEffect(() => {
+    setToggle && setToggle(prev=>!prev)
+  }, [wish]);
 
   return (
     <div className="product">
