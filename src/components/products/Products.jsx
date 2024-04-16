@@ -2,11 +2,12 @@ import "./products.scss";
 import Product from "../product/Product";
 import { useSelector, useDispatch } from "react-redux";
 import { selectProducts, getProducts } from "../../features/shop/shopSlice";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Products = ({ active, basket }) => {
   const dispatch = useDispatch();
   const productData = useSelector(selectProducts);
+  const [toggle, setToggle] = useState(false);
   
   const wishlistData = JSON.parse(localStorage.getItem("myArray"));
   console.log(wishlistData, "w");
@@ -29,13 +30,10 @@ const Products = ({ active, basket }) => {
 
   return (
     <div className="products">
-      {basket
-        ? wishlistData?.map((item, i) => {
-            return <Product key={i} item={item} />;
-          })
-        : productData?.map((item, i) => {
-            return <Product key={i} item={item} />;
-          })}
+      {productData?.map((item, i) => {
+        return <Product key={i} item={item} setToggle={setToggle} />;
+      })}
+      {toggle}
     </div>
   );
 };
