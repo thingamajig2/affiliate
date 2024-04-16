@@ -1,12 +1,12 @@
-import testProduct from "../images/product.jpeg";
-import testProduct2 from "../images/product2.jpeg";
-import testProduct3 from "../images/product3.jpeg";
-import testProduct4 from "../images/product4.jpeg";
-import testProduct5 from "../images/product5.png";
-import testProduct6 from "../images/product6.jpeg";
-import testProduct7 from "../images/product7.jpeg";
-import testProduct8 from "../images/product8.jpg";
-import testProduct9 from "../images/product9.jpg";
+import testProduct from "../assets/product.jpeg";
+import testProduct2 from "../assets/product2.jpeg";
+import testProduct3 from "../assets/product3.jpeg";
+import testProduct4 from "../assets/product4.jpeg";
+import testProduct5 from "../assets/product5.png";
+import testProduct6 from "../assets/product6.jpeg";
+import testProduct7 from "../assets/product7.jpeg";
+import testProduct8 from "../assets/product8.jpg";
+import testProduct9 from "../assets/product9.jpg";
 
 const productData = [
       {
