@@ -1,6 +1,6 @@
 import "./product.scss";
-import heart from "../../images/heart1.png";
-import heartF from "../../images/heartF.png";
+import heart from "../../assets/heart1.png";
+import heartF from "../../assets/heartF.png";
 import { useState } from "react";
 import "../header/Header";
 import { openWishlist } from "../../features/shop/shopSlice";
