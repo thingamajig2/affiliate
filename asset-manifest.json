@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.fbde4973.css",
-    "main.js": "/static/js/main.04fd62a7.js",
-    "static/js/787.f3a2d3d7.chunk.js": "/static/js/787.f3a2d3d7.chunk.js",
-    "static/media/product7.jpeg": "/static/media/product7.8367f7f01f95d8e6a145.jpeg",
-    "static/media/product5.png": "/static/media/product5.63e9ca09ba14e00231eb.png",
-    "static/media/product6.jpeg": "/static/media/product6.de922bdc26c107b39a28.jpeg",
-    "static/media/oniomania.png": "/static/media/oniomania.944068357344f7278a98.png",
-    "static/media/product9.jpg": "/static/media/product9.d8d95475c9acd22eb4ed.jpg",
-    "static/media/product8.jpg": "/static/media/product8.16575dc9ccf44f162e6e.jpg",
-    "static/media/product4.jpeg": "/static/media/product4.ad5e1040afbe50d3b1f4.jpeg",
-    "index.html": "/index.html",
-    "main.fbde4973.css.map": "/static/css/main.fbde4973.css.map",
-    "main.04fd62a7.js.map": "/static/js/main.04fd62a7.js.map",
-    "787.f3a2d3d7.chunk.js.map": "/static/js/787.f3a2d3d7.chunk.js.map"
+    "main.css": "/affiliate/static/css/main.6e809208.css",
+    "main.js": "/affiliate/static/js/main.524d9239.js",
+    "static/js/787.f3a2d3d7.chunk.js": "/affiliate/static/js/787.f3a2d3d7.chunk.js",
+    "static/media/product7.jpeg": "/affiliate/static/media/product7.8367f7f01f95d8e6a145.jpeg",
+    "static/media/product5.png": "/affiliate/static/media/product5.63e9ca09ba14e00231eb.png",
+    "static/media/product6.jpeg": "/affiliate/static/media/product6.de922bdc26c107b39a28.jpeg",
+    "static/media/oniomania.png": "/affiliate/static/media/oniomania.944068357344f7278a98.png",
+    "static/media/product9.jpg": "/affiliate/static/media/product9.d8d95475c9acd22eb4ed.jpg",
+    "static/media/product8.jpg": "/affiliate/static/media/product8.16575dc9ccf44f162e6e.jpg",
+    "static/media/product4.jpeg": "/affiliate/static/media/product4.ad5e1040afbe50d3b1f4.jpeg",
+    "index.html": "/affiliate/index.html",
+    "main.6e809208.css.map": "/affiliate/static/css/main.6e809208.css.map",
+    "main.524d9239.js.map": "/affiliate/static/js/main.524d9239.js.map",
+    "787.f3a2d3d7.chunk.js.map": "/affiliate/static/js/787.f3a2d3d7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fbde4973.css",
-    "static/js/main.04fd62a7.js"
+    "static/css/main.6e809208.css",
+    "static/js/main.524d9239.js"
   ]
 }
