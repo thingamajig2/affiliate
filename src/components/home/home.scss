@@ -5,17 +5,15 @@
   height: 415px;
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: center;
 }
 .categories{
   display: flex;
   justify-content: space-around;
   cursor: pointer;
+  height: 78px;
   span{
     border: 1px solid gray;
-    width: 16px;
     padding: 26px;
-    background-color: #d5d5d5;
     margin-top: 20px;
   }
 }
@@ -70,4 +68,6 @@
     cursor: pointer;
 }
   }
-
+.activeCategory{
+  border: 3px solid orange !important;
+}

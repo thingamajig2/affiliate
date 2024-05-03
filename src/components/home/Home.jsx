@@ -10,6 +10,7 @@ const Home = () => {
     const dispatch = useDispatch();
     const productData = useSelector(selectProducts);
     const [modalIsOpen, setIsOpen] = React.useState(true);
+    const [stateCategory, setCategory] = React.useState(false);
 
     useEffect(() => {
         dispatch(getProducts());
@@ -19,6 +20,7 @@ const Home = () => {
     function closeModal() {
         setIsOpen(false);
     }
+
 
     return (
         <div className="home">
@@ -33,15 +35,29 @@ const Home = () => {
                 </Modal>
             </div>
             <div className="categories">
-                <span>1</span>
-                <span>2</span>
-                <span>3</span>
-                <span>4</span>
+                <span onClick={() => setCategory(false)}>all</span>
+                <span className={stateCategory === 'appliance' && 'activeCategory'} onClick={() => setCategory('appliance')}>appliance</span>
+                <span className={stateCategory === 'electronics' && 'activeCategory'} onClick={() => setCategory('electronics')}>electronics</span>
+                <span className={stateCategory === 'health' && 'activeCategory'} onClick={() => setCategory('health')}>health</span>
+                <span className={stateCategory === 'exercise' && 'activeCategory'} onClick={() => setCategory('exercise')}>exercise</span>
+                <span className={stateCategory === 'food' && 'activeCategory'} onClick={() => setCategory('food')}>food</span>
+                <span className={stateCategory === 'kitchenware' && 'activeCategory'} onClick={() => setCategory('kitchenware')}>kitchenware</span>
+                <span className={stateCategory === 'clothes' && 'activeCategory'} onClick={() => setCategory('clothes')}>clothes</span>
+                <span className={stateCategory === 'dental' && 'activeCategory'} onClick={() => setCategory('dental')}>dental</span>
+                <span className={stateCategory === 'music' && 'activeCategory'} onClick={() => setCategory('music')}>music</span>
             </div>
+
             <div className="productContent">
                 {
-                    productData.map(item => (
-                        <Product key={item.id} item={item} />
+                    productData
+                    .filter(item => {
+                        if(stateCategory === false){
+                            return item;
+                        }
+                        return item.category.includes(stateCategory);
+                    })
+                    .map(item => (
+                        <Product key = {item.id} item={item} />
                     ))}
             </div>
         </div>
