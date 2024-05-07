@@ -35,16 +35,46 @@ const Home = () => {
                 </Modal>
             </div>
             <div className="categories">
-                <span onClick={() => setCategory(false)}>all</span>
-                <span className={stateCategory === 'appliance' && 'activeCategory'} onClick={() => setCategory('appliance')}>appliance</span>
-                <span className={stateCategory === 'electronics' && 'activeCategory'} onClick={() => setCategory('electronics')}>electronics</span>
-                <span className={stateCategory === 'health' && 'activeCategory'} onClick={() => setCategory('health')}>health</span>
-                <span className={stateCategory === 'exercise' && 'activeCategory'} onClick={() => setCategory('exercise')}>exercise</span>
-                <span className={stateCategory === 'food' && 'activeCategory'} onClick={() => setCategory('food')}>food</span>
-                <span className={stateCategory === 'kitchenware' && 'activeCategory'} onClick={() => setCategory('kitchenware')}>kitchenware</span>
-                <span className={stateCategory === 'clothes' && 'activeCategory'} onClick={() => setCategory('clothes')}>clothes</span>
-                <span className={stateCategory === 'dental' && 'activeCategory'} onClick={() => setCategory('dental')}>dental</span>
-                <span className={stateCategory === 'music' && 'activeCategory'} onClick={() => setCategory('music')}>music</span>
+                <button onClick={() => setCategory(false)}>
+                    <span>all</span>
+                    <div></div>
+                </button>
+                <button className={stateCategory === 'appliance' && 'activeCategory'} onClick={() => setCategory('appliance')}>
+                    <span>appliance</span>
+                    <div></div>
+                </button>
+                <button className={stateCategory === 'electronics' && 'activeCategory'} onClick={() => setCategory('electronics')}>
+                    <span>electronics</span>
+                    <div></div>
+                </button>
+                <button className={stateCategory === 'health' && 'activeCategory'} onClick={() => setCategory('health')}>
+                    <span>health</span>
+                    <div></div>
+                </button>
+                <button className={stateCategory === 'exercise' && 'activeCategory'} onClick={() => setCategory('exercise')}>
+                    <span>exercise</span>
+                    <div></div>
+                </button>
+                <button className={stateCategory === 'food' && 'activeCategory'} onClick={() => setCategory('food')}>
+                    <span>food</span>
+                    <div></div>
+                </button>
+                <button className={stateCategory === 'kitchenware' && 'activeCategory'} onClick={() => setCategory('kitchenware')}>
+                    <span>kitchenware</span>
+                    <div></div>
+                </button>
+                <button className={stateCategory === 'clothes' && 'activeCategory'} onClick={() => setCategory('clothes')}>
+                    <span>clothes</span>
+                    <div></div>
+                </button>
+                <button className={stateCategory === 'dental' && 'activeCategory'} onClick={() => setCategory('dental')}>
+                    <span>dental</span>
+                    <div></div>
+                </button>
+                <button className={stateCategory === 'music' && 'activeCategory'} onClick={() => setCategory('music')}>
+                    <span>music</span>
+                    <div></div>
+                </button>
             </div>
 
             <div className="productContent">

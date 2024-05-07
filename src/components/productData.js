@@ -121,6 +121,14 @@ const productData = [
         wishlist: false,
         category:["clothes"], 
       },
+      {
+        id: 15,
+        description: "I Will Teach You to Be Rich",
+        image: "https://m.media-amazon.com/images/I/51R5o-WAyjL.jpg",
+        link: "https://amzn.to/3WzESVd",
+        wishlist: false,
+        category:["appliance"], 
+      },
   ];
 
 export default productData;

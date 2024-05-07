@@ -45,9 +45,6 @@ const Header = () => {
         </Link>
         <div className="searchAndCompare">
           <Search />
-          <div className="compare" htmlFor="logos">
-            {/* <div className = "compareBox" ></div> */}
-          </div>
         </div>
       </div>
       <div className="lower">
