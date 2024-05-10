@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import WishlistProduct from "../wishlistProduct/WishlistProduct";
 
 
+
 const Header = () => {
   const active = useSelector(selectWishlistOpenStatus);
   const dispatch = useDispatch();

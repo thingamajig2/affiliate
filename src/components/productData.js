@@ -129,6 +129,15 @@ const productData = [
         wishlist: false,
         category:["appliance"], 
       },
+      {
+        id: 16,
+        description: "Checkme Blood Pressure Monitor",
+        image: "https://m.media-amazon.com/images/I/71Wbp+xjPLL._AC_SX679_.jpg",
+        link: "https://amzn.to/44BjO2E",
+        wishlist: false,
+        category:["health", "electronics"], 
+      },
+
   ];
 
 export default productData;
