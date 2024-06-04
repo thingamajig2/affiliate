@@ -2,7 +2,7 @@
     .upper{
         height: 80px;
         width: calc(100% - 2rem);
-        background-color: rgba(165, 165, 165, 0.873);
+        background-color: rgba(237, 248, 255, 0.873);
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -55,6 +55,7 @@
                 animation-fill-mode: forwards;
                 color: black;
                 background-color: white;
+                z-index: 100;
             }
             .wishlistBoxOpen{
                 animation-name: wishlistBoxOpen;
@@ -74,7 +75,7 @@
                 color: transparent;
             }
             to{
-                height: 274px;
+                height: 400px;
                 padding: 11px;
                 border: 2px solid gray;
                 overflow-y: scroll;
@@ -83,7 +84,7 @@
         }
         @keyframes wishlistBoxClose {
             from{
-                height: 274px;
+                height: 400px;
                 padding: 11px;
                 border: 2px solid gray;
                 overflow-y: scroll;
@@ -98,11 +99,6 @@
             }
         }
 
-        .compare{
-            background-image: url("../../assets/compare.png");
-            margin-right: 10px;
-            position: relative;
-
             .compareBox{
                 border: 2px solid gray;
                 height: 150px;
@@ -115,4 +111,3 @@
             }
         }
     }
-}

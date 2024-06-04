@@ -1,17 +1,7 @@
-import testProduct from "../assets/product1.jpeg";
-import testProduct2 from "../assets/product2.jpeg";
-import testProduct3 from "../assets/product3.jpeg";
-import testProduct4 from "../assets/product4.jpeg";
-import testProduct5 from "../assets/product5.png";
-import testProduct6 from "../assets/product6.jpeg";
-import testProduct7 from "../assets/product7.jpeg";
-import testProduct8 from "../assets/product8.jpg";
-import testProduct9 from "../assets/product9.jpg";
-
 const productData = [
       {
         id: 1,
-        description: "Amazon Echo Dot",
+        description: "Amazon Echo Dot 5th Gen",
         image: 'https://m.media-amazon.com/images/I/41U7UzQyiJL._AC_SX679_.jpg',
         link: "https://amzn.to/3Uqhyrw",
         wishlist: false,
@@ -27,7 +17,7 @@ const productData = [
       },
       {
         id: 3,
-        description: "Laptop Stand",
+        description: "Adjustable Laptop Stand",
         image: "https://m.media-amazon.com/images/I/510iU09qiyL._AC_SX679_.jpg",
         link: "https://amzn.to/3W7R1k8",
         wishlist: false,
@@ -51,7 +41,7 @@ const productData = [
       },
       {
         id: 6,
-        description: "Etekcity Food Scale",
+        description: "Etekcity Digital Food Scale",
         image: "https://m.media-amazon.com/images/I/81hlqG9SxUL._SX522_.jpg",
         link: "https://amzn.to/3W8kWsl",
         wishlist: false,
@@ -59,7 +49,7 @@ const productData = [
       },
       {
         id: 7,
-        description: "COSRX Snail Mucin",
+        description: "COSRX Snail Mucin 96% Power",
         image: "https://m.media-amazon.com/images/I/61p-wtpDraL._SX679_.jpg",
         link: "https://amzn.to/4aINyNo",
         wishlist: false,
@@ -99,11 +89,11 @@ const productData = [
       },
       {
         id: 12,
-        description: "California Gold Fish Oil",
+        description: "California Gold Nutrition Fish Oil",
         image: "https://m.media-amazon.com/images/I/61KUMakLYdL._AC_SX679_.jpg",
         link: "https://amzn.to/44npY6p",
         wishlist: false,
-        category:["health", "appliance"], 
+        category:["health", "medicine"], 
       },
       {
         id: 13,
@@ -115,7 +105,7 @@ const productData = [
       },
       {
         id: 14,
-        description: "Toddler Straw Hat",
+        description: "Toddler Flower Straw Hat",
         image: "https://m.media-amazon.com/images/I/71K+KCGFwbL._AC_SX679_.jpg",
         link: "https://amzn.to/3JQvYeh",
         wishlist: false,
@@ -127,7 +117,7 @@ const productData = [
         image: "https://m.media-amazon.com/images/I/51R5o-WAyjL.jpg",
         link: "https://amzn.to/3WzESVd",
         wishlist: false,
-        category:["appliance"], 
+        category:["appliance", "books"], 
       },
       {
         id: 16,

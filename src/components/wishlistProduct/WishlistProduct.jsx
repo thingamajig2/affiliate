@@ -1,7 +1,7 @@
 import Product from "../product/Product";
 import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { selectProducts, getProducts } from "../../features/shop/shopSlice";
+import { useDispatch } from "react-redux";
+import { getProducts } from "../../features/shop/shopSlice";
 import { useState } from "react";
 
 const WishlistProduct = () => {

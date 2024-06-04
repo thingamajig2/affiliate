@@ -48,9 +48,6 @@ const Header = () => {
           <Search />
         </div>
       </div>
-      <div className="lower">
-        <div className="filters"></div>
-      </div>
     </div>
   );
 };

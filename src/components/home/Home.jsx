@@ -4,187 +4,146 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getProducts, selectProducts } from "../../features/shop/shopSlice";
 import { useEffect } from "react";
 import Modal from 'react-modal';
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Pagination } from 'swiper/modules';
+import 'swiper/css/navigation';
+import { Keyboard, Mousewheel, Navigation, Pagination } from 'swiper/modules';
+import ResponsivePagination from 'react-responsive-pagination';
+import 'react-responsive-pagination/themes/classic.css';
+import { useMemo } from "react";
+
 
 const Home = () => {
     const dispatch = useDispatch();
     const productData = useSelector(selectProducts);
-    const [modalIsOpen, setIsOpen] = React.useState(true);
-    const [stateCategory, setCategory] = React.useState(false);
+    const [selectedCategory, setSelectedCategory] = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
+    const countToShow = 12;
+    const [modalIsOpen, setIsOpen] = useState(true);
 
-    useEffect(() => {
-        dispatch(getProducts());
-    }, [])
-    let storedArray = JSON.parse(localStorage.getItem('myArray')) || [];
+
+    // Filter products based on selected category
+    const filteredProducts = useMemo(() => {
+        return productData.filter(item => {
+            if (!selectedCategory) return true;
+            return item.category.includes(selectedCategory);
+        });
+    }, [productData, selectedCategory]);
+
+    // Calculate total pages based on filtered products
+    const totalPages = useMemo(() => {
+        return Math.ceil(filteredProducts.length / countToShow);
+    }, [filteredProducts.length, countToShow]);
 
     function closeModal() {
         setIsOpen(false);
     }
 
+    // Fetch products on component mount
+    useEffect(() => {
+        dispatch(getProducts());
+    }, [dispatch]);
+
+    // Reset to the first page when the selected category changes
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [selectedCategory]);
+
+    // Get current page products
+    const currentProducts = useMemo(() => {
+        const startIndex = (currentPage - 1) * countToShow;
+        return filteredProducts.slice(startIndex, startIndex + countToShow);
+    }, [filteredProducts, currentPage, countToShow]);
+
+
+    const useWindowWidth = () => {
+        const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+        useEffect(() => {
+            const handleResize = () => {
+                setWindowWidth(window.innerWidth);
+            };
+
+            window.addEventListener('resize', handleResize);
+
+            return () => {
+                window.removeEventListener('resize', handleResize);
+            };
+        }, []);
+
+        return windowWidth;
+    };
+
+    const windowWidth = useWindowWidth();
+
+    const getItemsToShow = () => {
+        if (windowWidth >= 1200) {
+            return 8;
+        } else if (windowWidth >= 992) {
+            return 6;
+        } else if (windowWidth >= 768) {
+            return 4;
+        } else {
+            return 2;
+        }
+    };
+
+    const itemsToShow = getItemsToShow();
     return (
         <div className="home">
-            {/* <div>
-                <Modal
-                    isOpen={modalIsOpen}
-                    onRequestClose={closeModal}
-                    contentLabel="Example Modal"
-                >
-                    <button onClick={closeModal}>x</button>
-                    <div className="intro"></div>
-                </Modal>
-            </div> */}
+            <Modal
+                isOpen={modalIsOpen}
+                onRequestClose={closeModal}
+                contentLabel="Example Modal"
+            >
+                <button onClick={closeModal}>x</button>
+                <div className="intro"></div>
+            </Modal>
             <div className="categories">
-                {/* <Swiper
-                    slidesPerView={3}
-                    spaceBetween={3}
-                    pagination={{
-                        clickable: true,
-                    }}
-                    // modules={[Pagination]}
+                <Swiper
+                    slidesPerView={itemsToShow}
+                    spaceBetween={10}
+                    pagination={{ clickable: true }}
+                    cssMode={true}
+                    navigation={true}
+                    mousewheel={true}
+                    keyboard={true}
+                    modules={[Navigation, Pagination, Mousewheel, Keyboard]}
                     className="mySwiper"
-                > */}
-                        <button onClick={() => setCategory(false)}>
-                            <span>all</span>
-                            <div></div>
-                        </button>
-                        <button className={stateCategory === 'appliance' && 'activeCategory'} onClick={() => setCategory('appliance')}>
-                            <span>appliance</span>
-                            <div></div>
-                        </button>
-                        <button className={stateCategory === 'electronics' && 'activeCategory'} onClick={() => setCategory('electronics')}>
-                            <span>electronics</span>
-                            <div></div>
-                        </button>
-                        <button className={stateCategory === 'health' && 'activeCategory'} onClick={() => setCategory('health')}>
-                            <span>health</span>
-                            <div></div>
-                        </button>
-                        <button className={stateCategory === 'exercise' && 'activeCategory'} onClick={() => setCategory('exercise')}>
-                            <span>exercise</span>
-                            <div></div>
-                        </button>
-                        <button className={stateCategory === 'food' && 'activeCategory'} onClick={() => setCategory('food')}>
-                            <span>food</span>
-                            <div></div>
-                        </button>
-                        <button className={stateCategory === 'kitchenware' && 'activeCategory'} onClick={() => setCategory('kitchenware')}>
-                            <span>kitchenware</span>
-                            <div></div>
-                        </button>
-                        <button className={stateCategory === 'clothes' && 'activeCategory'} onClick={() => setCategory('clothes')}>
-                            <span>clothes</span>
-                            <div></div>
-                        </button>
-                        <button className={stateCategory === 'dental' && 'activeCategory'} onClick={() => setCategory('dental')}>
-                            <span>dental</span>
-                            <div></div>
-                        </button>
-                        <button className={stateCategory === 'music' && 'activeCategory'} onClick={() => setCategory('music')}>
-                            <span>music</span>
-                            <div></div>
-                        </button>
-                        <button className={stateCategory === 'books' && 'activeCategory'} onClick={() => setCategory('books')}>
-                            <span>books</span>
-                            <div></div>
-                        </button>
-                        <button className={stateCategory === 'medicine' && 'activeCategory'} onClick={() => setCategory('medicine')}>
-                            <span>medicine</span>
-                            <div></div>
-                        </button>
-                    {/* <SwiperSlide>
-                        <button onClick={() => setCategory(false)}>
-                            <span>all</span>
-                            <div></div>
-                        </button>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <button className={stateCategory === 'appliance' && 'activeCategory'} onClick={() => setCategory('appliance')}>
-                        <span>appliance</span>
-                        <div></div>
-                        </button>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <button className={stateCategory === 'electronics' && 'activeCategory'} onClick={() => setCategory('electronics')}>
-                            <span>electronics</span>
-                            <div></div>
-                        </button>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <button className={stateCategory === 'health' && 'activeCategory'} onClick={() => setCategory('health')}>
-                            <span>health</span>
-                            <div></div>
-                        </button>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <button className={stateCategory === 'exercise' && 'activeCategory'} onClick={() => setCategory('exercise')}>
-                            <span>exercise</span>
-                            <div></div>
-                        </button>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <button className={stateCategory === 'food' && 'activeCategory'} onClick={() => setCategory('food')}>
-                            <span>food</span>
-                            <div></div>
-                        </button>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <button className={stateCategory === 'kitchenware' && 'activeCategory'} onClick={() => setCategory('kitchenware')}>
-                            <span>kitchenware</span>
-                            <div></div>
-                        </button>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <button className={stateCategory === 'clothes' && 'activeCategory'} onClick={() => setCategory('clothes')}>
-                            <span>clothes</span>
-                            <div></div>
-                        </button>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <button className={stateCategory === 'dental' && 'activeCategory'} onClick={() => setCategory('dental')}>
-                            <span>dental</span>
-                            <div></div>
-                        </button>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <button className={stateCategory === 'music' && 'activeCategory'} onClick={() => setCategory('music')}>
-                            <span>music</span>
-                            <div></div>
-                        </button>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <button className={stateCategory === 'books' && 'activeCategory'} onClick={() => setCategory('books')}>
-                            <span>books</span>
-                            <div></div>
-                        </button>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <button className={stateCategory === 'medicine' && 'activeCategory'} onClick={() => setCategory('medicine')}>
-                            <span>medicine</span>
-                            <div></div>
-                        </button>
-                    </SwiperSlide> */}
-                {/* </Swiper> */}
+                >
+                    {['all', 'appliance', 'electronics', 'health', 'exercise', 'food', 'kitchenware', 'clothes', 'dental', 'music', 'books', 'medicine'].map(category => (
+                        <SwiperSlide key={category}>
+                            <button
+                                className={selectedCategory === category && 'activeCategory'}
+                                onClick={() => setSelectedCategory(category === 'all' ? false : category)}
+                            >
+                                <span>{category}</span>
+                                <div></div>
+                            </button>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
             </div>
-            <div className="productContent">
 
-                {
-                    productData
-                        .filter(item => {
-                            if (stateCategory === false) {
-                                return item;
-                            }
-                            return item.category.includes(stateCategory);
-                        })
-                        .map(item => (
-                            <Product key={item.id} item={item} />
-                        ))}
+            <div className="productContent">
+                {currentProducts.map(item => (
+                    <Product key={item.id} item={item} />
+                ))}
+            </div>
+
+            <div className="pagination">
+                {filteredProducts.length > countToShow && (
+                    <ResponsivePagination
+                        current={currentPage}
+                        total={totalPages}
+                        onPageChange={setCurrentPage}
+                    />
+                )}
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Home;

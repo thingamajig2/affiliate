@@ -33,11 +33,11 @@ const Product = ({ item, setToggle }) => {
 
   useEffect(() => {
     setToggle && setToggle(prev=>!prev)
-  }, [wish]);
+  }, [wish, setToggle]);
 
   return (
     <div className="product">
-      <a href={item.link} target="_blank">
+      <a href={item.link} target="_blank" rel="noreferrer">
         <div className="description">{item?.description}</div>
         <img
           className="productImage"

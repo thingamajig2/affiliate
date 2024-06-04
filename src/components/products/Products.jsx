@@ -10,13 +10,10 @@ const Products = ({ active, basket }) => {
   const [toggle, setToggle] = useState(false);
   
   const wishlistData = JSON.parse(localStorage.getItem("myArray"));
-  console.log(wishlistData, "w");
-  console.log(productData, "p")
-
 
   useEffect(() => {
     dispatch(getProducts());
-  }, []);
+  }, [dispatch]);
 
   if (basket) {
     if (wishlistData?.length === 0) {
