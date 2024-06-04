@@ -1,6 +1,6 @@
 import Search from "../search/Search";
 import "./header.scss";
-import OutsideClickHandler from "react-outside-click-handler";\
+import OutsideClickHandler from "react-outside-click-handler";
 import { useDispatch, useSelector } from "react-redux";
 import { openWishlist, selectWishlistOpenStatus } from "../../features/shop/shopSlice";
 import { Link } from "react-router-dom";
