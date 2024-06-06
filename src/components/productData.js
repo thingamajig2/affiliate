@@ -127,7 +127,14 @@ const productData = [
         wishlist: false,
         category:["health", "electronics"], 
       },
-
+      {
+        id: 17,
+        description: "Cinnamon Xylitol",
+        image: "https://m.media-amazon.com/images/I/61UMt+qh13L._SX679_PIbundle-2,TopRight,0,0_AA679SH20_.jpg",
+        link: "https://amzn.to/3z0XweM",
+        wishlist: false,
+        category:["health", "medicine"], 
+      },
   ];
 
 export default productData;
