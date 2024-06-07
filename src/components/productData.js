@@ -129,9 +129,9 @@ const productData = [
       },
       {
         id: 17,
-        description: "Cinnamon Xylitol",
-        image: "https://m.media-amazon.com/images/I/61UMt+qh13L._SX679_PIbundle-2,TopRight,0,0_AA679SH20_.jpg",
-        link: "https://amzn.to/3z0XweM",
+        description: "Xylitol Gum",
+        image: "https://m.media-amazon.com/images/I/61v2IZP1euL._SY522_.jpg",
+        link: "https://amzn.to/45hVcw3",
         wishlist: false,
         category:["health", "medicine"], 
       },
