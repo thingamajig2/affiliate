@@ -1,11 +1,12 @@
-.products{
+.products {
     height: 274px;
     overflow: scroll;
     width: 263px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    .product{
+
+    .product {
         height: 100%;
         width: 225px;
         display: flex;
@@ -15,41 +16,53 @@
         justify-content: space-evenly;
         align-items: center;
         padding: 0.5rem;
-        
-        .productImage{
-            background-size: cover;
+
+        a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .productImage {
+            background-size: contain;
             height: 80%;
         }
-        .productText{
+
+        .productText {
             display: flex;
             justify-content: space-evenly;
             align-items: flex-end;
-        .description{
-            height: 65px;
-            width: 100px;
-            padding: 3px;
-            font-weight: 500;
-            font-family: 'Roboto', sans-serif;
-        }
-        }
-        .productRow{
-            display:flex;
-            flex-direction: row;
-            .price{
-                height: 35px;
-                width: 50px;
-                align-items: flex-end;
+
+            .description {
+                height: 65px;
+                width: 100px;
+                padding: 3px;
+                font-weight: 500;
+                font-family: 'Roboto', sans-serif;
             }
-            .heart{
+        }
+
+        .productRow {
+            display: flex;
+            flex-direction: row;
+
+            .heart {
                 background-size: cover;
-                &:active{
+
+                &:active {
                     background-image: url("../../images/heartF.png");
                     background-size: cover;
                     width: 26px;
                     height: 25px;
-                    
+
                 }
             }
         }
-        }
+    }
+}
+
+.wishlistBox {
+    .product {
+        padding-bottom: 10px;
+    }
 }

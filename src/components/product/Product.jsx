@@ -37,12 +37,12 @@ const Product = ({ item, setToggle }) => {
 
   return (
     <div className="product">
-      <a href={item.link} target="_blank" rel="noreferrer">
+      <a href={item.link} target="_blank" rel="noreferrer" className="link">
         <div className="description">{item?.description}</div>
         <img
           className="productImage"
           src={item?.image}
-          height={100}
+          height={200}
           alt="product"
         />
         <div className="productRow">

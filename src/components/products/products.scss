@@ -2,12 +2,11 @@
     overflow: scroll;
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 30px;
 
     .product {
         height: 100%;
-        width: 225px;
+        width: 100px;
         display: flex;
         border-bottom: 2px solid gray;
         border-radius: 3px;
@@ -39,12 +38,6 @@
         .productRow {
             display: flex;
             flex-direction: row;
-
-            .price {
-                height: 35px;
-                width: 50px;
-                align-items: flex-end;
-            }
 
             .heart {
                 background-size: cover;
