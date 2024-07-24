@@ -14,6 +14,10 @@ const Product = ({ item, setToggle }) => {
   );
   const dispatch = useDispatch();
 
+  const storeCategory = (category) => {
+    localStorage.setItem('category', JSON.stringify(category));
+  }
+
   const toggleHeart = (e) => {
     e.preventDefault();
     const storedArray = JSON.parse(localStorage.getItem("myArray")) || [];
@@ -37,7 +41,8 @@ const Product = ({ item, setToggle }) => {
 
   return (
     <div className="product">
-      <a href={item.link} target="_blank" rel="noreferrer" className="link">
+      <a href={item.link} target="_blank" rel="noreferrer" className="link"
+      onClick={()=>storeCategory(item.category)}>
         <div className="description">{item?.description}</div>
         <img
           className="productImage"

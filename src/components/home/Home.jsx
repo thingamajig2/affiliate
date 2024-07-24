@@ -2,9 +2,8 @@ import "./home.scss";
 import Product from "../product/Product";
 import { useSelector, useDispatch } from 'react-redux';
 import { getProducts, selectProducts } from "../../features/shop/shopSlice";
-import { useEffect } from "react";
+import { useEffect, useState, useMemo } from "react";
 import Modal from 'react-modal';
-import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -12,8 +11,6 @@ import 'swiper/css/navigation';
 import { Keyboard, Mousewheel, Navigation, Pagination } from 'swiper/modules';
 import ResponsivePagination from 'react-responsive-pagination';
 import 'react-responsive-pagination/themes/classic.css';
-import { useMemo } from "react";
-
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -22,15 +19,28 @@ const Home = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const countToShow = 12;
     const [modalIsOpen, setIsOpen] = useState(true);
+    const [storedCategory, setStoredCategory] = useState(null);
 
+    // Fetch the stored category from localStorage when the component mounts
+    useEffect(() => {
+        const category = JSON.parse(localStorage.getItem('category')) || [];
+        setStoredCategory(category[0] || null);
+    }, []);
 
-    // Filter products based on selected category
+    // Filter products based on selected category or stored category
     const filteredProducts = useMemo(() => {
-        return productData.filter(item => {
-            if (!selectedCategory) return true;
-            return item.category.includes(selectedCategory);
-        });
-    }, [productData, selectedCategory]);
+        let products = productData;
+
+        if (selectedCategory) {
+            products = products.filter(item => item.category.includes(selectedCategory));
+        } else if (storedCategory) {
+            const storedCategoryProducts = products.filter(item => item.category.includes(storedCategory));
+            const otherProducts = products.filter(item => !item.category.includes(storedCategory));
+            products = [...storedCategoryProducts, ...otherProducts];
+        }
+
+        return products;
+    }, [productData, selectedCategory, storedCategory]);
 
     // Calculate total pages based on filtered products
     const totalPages = useMemo(() => {
@@ -56,7 +66,6 @@ const Home = () => {
         const startIndex = (currentPage - 1) * countToShow;
         return filteredProducts.slice(startIndex, startIndex + countToShow);
     }, [filteredProducts, currentPage, countToShow]);
-
 
     const useWindowWidth = () => {
         const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -91,6 +100,7 @@ const Home = () => {
     };
 
     const itemsToShow = getItemsToShow();
+
     return (
         <div className="home">
             <Modal
